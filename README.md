@@ -34,7 +34,7 @@ This project was created as part of an academic lab to strengthen understanding 
 - Add UI (console or web-based)
 
 ### Screenshot Console output Example
-![University Course Management System](/demo.png)
+![University Course Management System](/Demo.png)
 
 java
 oop
