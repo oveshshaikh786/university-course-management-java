@@ -1,9 +1,11 @@
-class OnlineCourse extends Course {
+package com.university.model;
+
+public class OnlineCourse extends Course {
 
     private int weeks;
     private int videoLessons;
 
-    OnlineCourse(Subject subject, String instructor, int fee, int weeks, int videoLessons) {
+    public OnlineCourse(Subject subject, Instructor instructor, int fee, int weeks, int videoLessons) {
         super(subject, instructor, fee);
         this.weeks = weeks;
         this.videoLessons = videoLessons;

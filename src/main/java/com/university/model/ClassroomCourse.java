@@ -1,9 +1,11 @@
-class ClassroomCourse extends Course {
+package com.university.model;
+
+public class ClassroomCourse extends Course {
 
     private String school;
     private String session;
 
-    ClassroomCourse(Subject subject, String instructor, int fee, String school, String session) {
+    public ClassroomCourse(Subject subject, Instructor instructor, int fee, String school, String session) {
         super(subject, instructor, fee);
         this.school = school;
         this.session = session;

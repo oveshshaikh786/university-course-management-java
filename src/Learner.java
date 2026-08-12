@@ -1,44 +1,57 @@
 public class Learner implements Assessments {
 
-    String name;
-    Course course;
-    double gradeScore;
+    private String name;
+    private Course course;
+    private int assignmentsMarks;
+    private int quizMarks;
 
     Learner(String name, Course course) {
         this.name = name;
         this.course = course;
     }
 
-    public String toString() {
-        return "Name: " + this.name + " " + "Course: " + this.course.subject.title;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public int getAssignmentsMarks() {
+        return assignmentsMarks;
+    }
+
+    public int getQuizMarks() {
+        return quizMarks;
     }
 
     @Override
     public void assignmentsScore(int marks) {
-        this.course.assignmentsMarks = marks;
+        this.assignmentsMarks = marks;
     }
 
     @Override
     public void quizScore(int marks) {
-        this.course.quizMarks = marks;
+        this.quizMarks = marks;
     }
 
     public double calculateGrade() {
-        int maxAssignmentMarks, maxQuizMarks;
+        double assignmentGrade = ((double) assignmentsMarks * 10) / course.getMaxAssignmentMarks();
+        double quizGrade = ((double) quizMarks * 10) / course.getMaxQuizMarks();
+        return (assignmentGrade + quizGrade) / 2;
+    }
 
-        if (this.course.subject.title.contains("Online")) {
-            maxAssignmentMarks = 30;
-            maxQuizMarks = 10;
-        } else {
-            maxAssignmentMarks = 100;
-            maxQuizMarks = 30;
-        }
-
-        double assignmentGrade = ((double) this.course.assignmentsMarks * 10) / maxAssignmentMarks;
-        double quizGrade = ((double) this.course.quizMarks * 10) / maxQuizMarks;
-
-        this.gradeScore = (assignmentGrade + quizGrade) / 2;
-
-        return this.gradeScore;
+    @Override
+    public String toString() {
+        return "Name: " + name + " Course: " + course.getSubject().getTitle();
     }
 }

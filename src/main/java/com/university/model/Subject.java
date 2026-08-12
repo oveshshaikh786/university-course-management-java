@@ -1,9 +1,11 @@
-class Subject {
+package com.university.model;
+
+public class Subject {
 
     private String title;
     private double credits;
 
-    Subject(String title, double credits) {
+    public Subject(String title, double credits) {
         this.title = title;
         this.credits = credits;
     }
@@ -26,9 +28,6 @@ class Subject {
 
     @Override
     public String toString() {
-        return "Subject{" +
-                "title='" + title + '\'' +
-                ", credits=" + credits +
-                '}';
+        return "Subject{title='" + title + "', credits=" + credits + '}';
     }
 }
